@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="main.js">
+    </script>
+    <script type="text/javascript" src="angular.min.js">
+    </script>
+
+    <style>
+        .hello {
+            background: magenta;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+<div ng-app="">
+
+    <div ng-controller="firstCntrl">
+
+        <h1> {{data.message + " world"}}</h1>
+
+        <div class="{{data.message}}">
+            Wrapped with the heading component!
+        </div>
+
+    </div>
+
+
+</div>
+
+</body>
+
+
+</html>
