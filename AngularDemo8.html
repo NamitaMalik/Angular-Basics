@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <title>Revenue Calculator</title>
+    <script type="text/javascript" src="angular.min.js">
+    </script>
+</head>
+<body>
+<div ng-controller="RepeatController">
+    <ul>
+        <li ng-repeat="student in students">
+            {{student.name}}
+        </li>
+    </ul>
+    <input ng-model="addStudent">
+
+    <button ng-click="insertMember()">Insert Me!</button>
+
+
+</div>
+</form>
+</body>
+<script>
+
+    function RepeatController($scope){
+
+        var students = [{name:'Charlie'},{name:'Tammy'},{name:'Nandu'},{name:'Jag'}, {name:'Rohan'}];
+        $scope.students = students;
+
+        $scope.insertMember=function(){
+        $scope.students.push({name:$scope.addStudent});
+        }
+    }
+</script>
+</html>
