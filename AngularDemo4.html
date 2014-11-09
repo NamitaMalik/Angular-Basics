@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="sample.js">
+    </script>
+    <script type="text/javascript" src="angular.min.js">
+    </script>
+
+    <style>
+        .hello {
+            background: magenta;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+<div ng-app>
+
+    <div ng-controller="firstCntrl">
+        {{name}} {{ years}}
+        <ul>
+            <li ng-repeat="e in y">{{e}}</li>
+        </ul>
+        <input ng-model="name">
+        <div class="{{data.message}}">
+            Wrapped with the heading component!
+        </div>
+        <input type="button" value="Click Me" ng-click="onClick()">
+    </div>
+
+
+
+    <div ng-controller="secondCntrl">
+        <input type="button" value="Click Me" ng-click="onClick(1)">
+    </div>
+
+
+    <div ng-controller="secondCntrl">
+        <input type="button" value="Click Me" ng-click="onClick(2)">
+    </div>
+
+    <div ng-controller="secondCntrl">
+        <input type="button" value="Click Me" ng-click="onClick(3)">
+    </div>
+
+</div>
+
+</body>
+
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="todoModule">
+<head>
+    <title>TODO List</title>
+    <script type="text/javascript" src="angular.min.js">
+    </script>
+</head>
+<body>
+<div ng-controller="TODOController">
+    <input ng-model="newTask">
+    <button ng-click="insertTask()" ng-enter>Add</button>
+    <div class="todoItems">
+        <h2>My TODO List</h2>
+        <ul>
+            <li ng-repeat="todo in todoList">
+                {{$index+1}}. {{todo.name}}
+                <button ng-click="completeTask($index)">Done</button>
+            </li>
+
+        </ul>
+    </div>
+    <div class="removeItems">
+        <h2>My Done List</h2>
+        <ul>
+            <li ng-repeat="done in doneList">
+                {{$index+1}}.{{done.name}}
+                <button ng-click="removeTask($index)">Remove</button>
+            </li>
+
+        </ul>
+    </div>
+</div>
+</body>
+<script>
+    var todoModule = angular.module("todoModule", []);
+    todoModule.controller("TODOController", function ($scope) {
+        $scope.todoList = [];
+        $scope.insertTask = function () {
+            $scope.todoList.push({name: $scope.newTask});
+            $scope.newTask = "";
+        };
+        $scope.doneList = [];
+        $scope.completeTask = function (index) {
+            $scope.doneList.push($scope.todoList.splice(index, 1)[0]);
+        };
+        $scope.removeTask = function (index) {
+            $scope.doneList.splice(index, 1);
+        };
+    });
+</script>
+</html>

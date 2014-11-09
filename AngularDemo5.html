@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <script type="text/javascript" src="angular.min.js">
+        </script>
+
+</head>
+<body>
+
+
+<div ng-controller="clickControl">
+
+    <input type="text" ng-model="mystyle">
+
+    <div class="Myarea" ng-style="{'background-color':mystyle}">
+        My text, my color!
+    </div>
+
+</div>
+
+</body>
+</html>
