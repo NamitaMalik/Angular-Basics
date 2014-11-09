@@ -3,7 +3,7 @@
  */
 
 function FirstController($scope) {
-    $scope.user = {message : "hello", class: "colo  Q"}
+    $scope.user = {message : "hello", class: "colorcode"}
 
 
 }

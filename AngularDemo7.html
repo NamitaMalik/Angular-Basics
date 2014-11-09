@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <title>Revenue Calculator</title>
+    <script type="text/javascript" src="angular.min.js">
+    </script>
+</head>
+<body>
+
+<form ng-controller="StartupController">
+
+    Starting : <input ng-change="computeNeeded()" ng-model="funding.startEstimate">
+
+    Required : {{funding.needed}}
+
+</form>
+</body>
+<script>
+
+    function StartupController($scope){
+
+        $scope.funding = {startEstimate : 0};
+
+        $scope.computeNeeded = function(){
+
+        $scope.funding.needed = $scope.funding.startEstimate * 10;
+    }
+
+   }
+
+</script>
+</html>

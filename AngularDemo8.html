@@ -9,7 +9,9 @@
 <div ng-controller="RepeatController">
     <ul>
         <li ng-repeat="student in students">
-            {{student.name}}
+
+           {{$index+1}}.{{student.name}}
+
         </li>
     </ul>
     <input ng-model="addStudent">
@@ -29,6 +31,7 @@
 
         $scope.insertMember=function(){
         $scope.students.push({name:$scope.addStudent});
+        $scope.addStudent = "" ;
         }
     }
 </script>
