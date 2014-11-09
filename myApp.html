@@ -22,8 +22,8 @@
         </div>
         <div id="left-content">
             <div id="input-item">
-            <input ng-model="newTask">
-            <button ng-click="insertTask()" ng-enter>Add</button>
+                <input ng-enter ng-model="newTask">
+                <button ng-click="insertTask()">Add</button>
             </div>
             <div class="todoItems">
                 <ul>
@@ -59,30 +59,39 @@
 <script>
     var todoModule = angular.module("todoModule", []);
     todoModule.controller("TODOController", function ($scope) {
-        $scope.todoList = [];
-        $scope.todoList=JSON.parse(localStorage.getItem('todoList'));
-        if(!$scope.todoList){
+        $scope.todoList = JSON.parse(localStorage.getItem('todoList'));
+        if (!$scope.todoList) {
             $scope.todoList = [];
         }
         $scope.insertTask = function () {
             $scope.todoList.push({name: $scope.newTask});
             $scope.newTask = "";
-            localStorage.setItem('todoList',JSON.stringify($scope.todoList));
+            localStorage.setItem('todoList', JSON.stringify($scope.todoList));
         };
-        $scope.doneList = [];
-        $scope.doneList=JSON.parse(localStorage.getItem('doneList'));
-        if(!$scope.doneList){
+        $scope.doneList = JSON.parse(localStorage.getItem('doneList'));
+        if (!$scope.doneList) {
             $scope.doneList = [];
         }
         $scope.completeTask = function (index) {
-            console.log(1);
             $scope.doneList.push($scope.todoList.splice(index, 1)[0]);
-            localStorage.setItem('todoList',JSON.stringify($scope.todoList));
-            localStorage.setItem('doneList',JSON.stringify($scope.doneList));
+            localStorage.setItem('todoList', JSON.stringify($scope.todoList));
+            localStorage.setItem('doneList', JSON.stringify($scope.doneList));
         };
         $scope.removeTask = function (index) {
             $scope.doneList.splice(index, 1);
-            localStorage.setItem('doneList',JSON.stringify($scope.doneList));
+            localStorage.setItem('doneList', JSON.stringify($scope.doneList));
+        };
+    });
+    todoModule.directive('ngEnter', function () {
+        return {
+            link: function (scope, element) {
+                element.bind("keypress", function (event) {
+                    if (event.keyCode == 13) {
+                        scope.insertTask();
+                        scope.$digest();
+                    }
+                });
+            }
         };
     });
 </script>
