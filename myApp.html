@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html ng-app="todoModule">
+<head>
+    <title></title>
+    <script type="text/javascript" src="angular.min.js">
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div ng-controller="TODOController">
+    <div class="header">
+
+        <div id="test">
+            <span id="heading">To Do App</span>
+        </div>
+        <div id="triangle">
+        </div>
+    </div>
+    <div class="left">
+        <div id="left-title">
+            <span id="left-heading">Things to Do</span>
+        </div>
+        <div id="left-content">
+            <div id="input-item">
+            <input ng-model="newTask">
+            <button ng-click="insertTask()" ng-enter>Add</button>
+            </div>
+            <div class="todoItems">
+                <ul>
+                    <li ng-repeat="todo in todoList">
+                        {{$index+1}}. {{todo.name}}
+                        <button ng-click="completeTask($index)">Done</button>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <div class="right">
+        <div id="right-title">
+            <span id="right-heading">Things to Do</span>
+        </div>
+        <div id="right-content">
+            <div class="removeItems">
+                <ul>
+                    <li ng-repeat="done in doneList">
+                        {{$index+1}}.{{done.name}}
+                        <button ng-click="removeTask($index)">Remove</button>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+<script>
+    var todoModule = angular.module("todoModule", []);
+    todoModule.controller("TODOController", function ($scope) {
+        $scope.todoList = [];
+        $scope.todoList=JSON.parse(localStorage.getItem('todoList'));
+        if(!$scope.todoList){
+            $scope.todoList = [];
+        }
+        $scope.insertTask = function () {
+            $scope.todoList.push({name: $scope.newTask});
+            $scope.newTask = "";
+            localStorage.setItem('todoList',JSON.stringify($scope.todoList));
+        };
+        $scope.doneList = [];
+        $scope.doneList=JSON.parse(localStorage.getItem('doneList'));
+        if(!$scope.doneList){
+            $scope.doneList = [];
+        }
+        $scope.completeTask = function (index) {
+            console.log(1);
+            $scope.doneList.push($scope.todoList.splice(index, 1)[0]);
+            localStorage.setItem('todoList',JSON.stringify($scope.todoList));
+            localStorage.setItem('doneList',JSON.stringify($scope.doneList));
+        };
+        $scope.removeTask = function (index) {
+            $scope.doneList.splice(index, 1);
+            localStorage.setItem('doneList',JSON.stringify($scope.doneList));
+        };
+    });
+</script>
+</html>
