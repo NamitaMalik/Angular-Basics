@@ -27,7 +27,7 @@
             </div>
             <div class="todoItems">
                 <ul>
-                    <li ng-repeat="todo in todoList">
+                    <li ng-repeat="todo in todoList track by $index">
                         {{$index+1}}. {{todo.name}}
                         <button ng-click="completeTask($index)">Done</button>
                     </li>
@@ -39,12 +39,12 @@
     </div>
     <div class="right">
         <div id="right-title">
-            <span id="right-heading">Things to Do</span>
+            <span id="right-heading">Things Done</span>
         </div>
         <div id="right-content">
             <div class="removeItems">
                 <ul>
-                    <li ng-repeat="done in doneList">
+                    <li ng-repeat="done in doneList track by $index">
                         {{$index+1}}.{{done.name}}
                         <button ng-click="removeTask($index)">Remove</button>
                     </li>
