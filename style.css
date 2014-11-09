@@ -1,0 +1,112 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    border: 0 none;
+    font: inherit;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+.header{
+    width:100%;
+    height: 60px;
+    background-color: #F1F1F1;
+    text-align: center;
+    position: relative;
+}
+
+#test{
+    position: relative;
+    height:50px;
+    margin: 0 auto;
+    }
+
+#heading{
+    font-family: 'Bree Serif', serif;
+    font-size: 2em;
+
+}
+
+#triangle{
+    position:absolute;
+    top: 0px;
+    width: 0;
+    height: 0;
+    border-top: 60px solid #c63b6f;
+    border-right: 60px solid transparent;
+}
+
+body{
+
+background-color: #FFFFFF;
+
+}
+
+.left {
+    width:45%;
+   /* min-height:500px;*/
+    height : 500px;
+    float:left;
+    margin: 26px;
+    border: 6px solid;
+    border-color: #c63b6f;
+    background-color: #F1F1F1;
+}
+.right {
+    width:45%;
+    /* min-height:500px;*/
+    height : 500px;
+    float:  right;
+    margin: 26px;
+    border: 6px solid;
+    border-color: #c63b6f;
+    background-color: #F1F1F1;
+
+}
+
+#left-title{
+    position: relative;
+    background-color:  #c63b6f;
+    text-align: center;
+}
+
+#left-heading{
+    color: #FFFFFF;
+    font-size: 1.2em;
+    font-weight: bold ;
+}
+
+#right-title{
+    position: relative;
+    background-color:  #c63b6f;
+    text-align: center;
+}
+
+#right-heading{
+    color: #FFFFFF;
+    font-size: 1.2em;
+    font-weight: bold ;
+}
+
+#left-content{
+    height: 480px;
+    overflow: scroll;
+    list-style-type: none;
+}
+
+#input-item{
+    padding : 5px;
+    text-align: center;
+}
+
+.todoItems{
+    padding: 10px;
+}
+
+#right-content{
+    height: 480px;
+    overflow: scroll;
+    list-style-type: none;
+}
+
+.removeItems{
+    padding: 10px;
+}
